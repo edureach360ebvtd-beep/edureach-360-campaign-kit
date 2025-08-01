@@ -203,5 +203,5 @@ Template Structure:
 ---
 
 **Brand Guidelines Version**: 1.0
-**Last Updated**: August 2025
-**Next Review**: September 2025
+**Last Updated**: [Current Date]
+**Next Review**: [Quarterly Review]

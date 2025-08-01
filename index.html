@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduReach 360: Digital Marketing Campaign Presentation</title>
+    <meta name="description" content="Professional presentation of the EduReach 360 digital marketing campaign for EBVTD">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .header .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .meta-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .nav-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .nav-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+        
+        .nav-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .nav-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .nav-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card .deliverables {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: #27ae60;
+        }
+        
+        .features-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 EduReach 360</h1>
+            <p class="subtitle">3-Day Digital Marketing Launchpad for EBVTD</p>
+            <p><strong>Campaign Hashtag:</strong> #SkillIndiaWithEBVTD</p>
+            
+            <div class="meta-info">
+                <div class="meta-card">
+                    <strong>🎯 Objective</strong><br>
+                    Strengthen EBVTD's online presence and outreach through strategic digital marketing
+                </div>
+                <div class="meta-card">
+                    <strong>👥 Target Audience</strong><br>
+                    Students, Professionals, Administrators, Industry Partners
+                </div>
+                <div class="meta-card">
+                    <strong>📍 Geographic Focus</strong><br>
+                    Bihar, Jharkhand, West Bengal
+                </div>
+                <div class="meta-card">
+                    <strong>🌐 Primary Website</strong><br>
+                    <a href="https://educationboard.in" target="_blank">educationboard.in</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-section">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em;">📋 Campaign Components</h2>
+            <div class="nav-grid">
+                <div class="nav-card" onclick="openSection('audit')">
+                    <span class="icon">🔍</span>
+                    <h3>Day 1: Foundation & Strategy</h3>
+                    <p>Digital audit, audience personas, and strategic planning</p>
+                    <div class="deliverables">
+                        <strong>Deliverables:</strong> SWOT Analysis, SEO Audit, Audience Personas, Content Strategy
+                    </div>
+                </div>
+                
+                <div class="nav-card" onclick="openSection('content')">
+                    <span class="icon">🎨</span>
+                    <h3>Day 2: Content Creation</h3>
+                    <p>Social media assets, email marketing, and brand guidelines</p>
+                    <div class="deliverables">
+                        <strong>Deliverables:</strong> Social Posts, Email Templates, Brand Guidelines, Video Scripts
+                    </div>
+                </div>
+                
+                <div class="nav-card" onclick="openSection('execution')">
+                    <span class="icon">🚀</span>
+                    <h3>Day 3: Campaign Execution</h3>
+                    <p>Launch strategy, analytics, and performance tracking</p>
+                    <div class="deliverables">
+                        <strong>Deliverables:</strong> Analytics Dashboard, Influencer Strategy, Crisis Management
+                    </div>
+                </div>
+                
+                <div class="nav-card" onclick="window.open('EduReach_360_Execution_Dashboard.html', '_blank')">
+                    <span class="icon">📊</span>
+                    <h3>Interactive Dashboard</h3>
+                    <p>Real-time campaign tracking and progress monitoring</p>
+                    <div class="deliverables">
+                        <strong>Features:</strong> Progress Tracking, Metrics Input, Goal Monitoring
+                    </div>
+                </div>
+                
+                <div class="nav-card" onclick="window.open('8_Analytics/Comprehensive_Analytics_Dashboard.html', '_blank')">
+                    <span class="icon">📈</span>
+                    <h3>Analytics Center</h3>
+                    <p>Comprehensive performance analytics and reporting</p>
+                    <div class="deliverables">
+                        <strong>Features:</strong> Real-time Metrics, Platform Analytics, Export Tools
+                    </div>
+                </div>
+                
+                <div class="nav-card" onclick="openSection('resources')">
+                    <span class="icon">📚</span>
+                    <h3>Campaign Resources</h3>
+                    <p>Templates, guides, and reference materials</p>
+                    <div class="deliverables">
+                        <strong>Includes:</strong> Setup Guides, Templates, Best Practices, Crisis Plans
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">🎯</span>
+                    <h3>Targeted Personas</h3>
+                    <p>4 detailed audience personas with specific strategies for each segment</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🌍</span>
+                    <h3>Regional Focus</h3>
+                    <p>Localized content strategies for Bihar, Jharkhand, and West Bengal</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📱</span>
+                    <h3>Multi-Platform</h3>
+                    <p>Integrated approach across Facebook, Instagram, LinkedIn, YouTube</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📊</span>
+                    <h3>Analytics Ready</h3>
+                    <p>Comprehensive tracking and reporting dashboards</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🎨</span>
+                    <h3>Brand Consistent</h3>
+                    <p>Complete brand guidelines and visual identity framework</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🚨</span>
+                    <h3>Crisis Ready</h3>
+                    <p>Comprehensive crisis management and response protocols</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>🎯 Ready to Launch Your Campaign?</h2>
+            <p>Everything you need for a successful digital marketing campaign is ready to deploy</p>
+            <div class="cta-buttons">
+                <a href="EduReach_360_Execution_Dashboard.html" class="btn btn-primary" target="_blank">
+                    🚀 Start Campaign Dashboard
+                </a>
+                <a href="#" class="btn btn-secondary" onclick="openSection('overview')">
+                    📋 View Complete Overview
+                </a>
+                <a href="8_Analytics/Comprehensive_Analytics_Dashboard.html" class="btn btn-secondary" target="_blank">
+                    📈 Analytics Dashboard
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>📞 Contact Information</h3>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <strong>👤 Project Lead</strong><br>
+                    Mrs. Mansi Chakrraborty<br>
+                    Administrative Head - Training and Development
+                </div>
+                <div class="contact-card">
+                    <strong>📱 Phone</strong><br>
+                    +91 8420752222
+                </div>
+                <div class="contact-card">
+                    <strong>📧 Email</strong><br>
+                    info@iitgroup.in
+                </div>
+                <div class="contact-card">
+                    <strong>🏢 Address</strong><br>
+                    238B AJC Bose Road, 1st Floor<br>
+                    Kolkata 700020
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for detailed sections -->
+    <div id="sectionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openSection(section) {
+            const modal = document.getElementById('sectionModal');
+            const content = document.getElementById('modalContent');
+            
+            let htmlContent = '';
+            
+            switch(section) {
+                case 'audit':
+                    htmlContent = `
+                        <h2>🔍 Day 1: Foundation & Strategy</h2>
+                        <h3>Digital Audit Framework</h3>
+                        <ul>
+                            <li><strong>SWOT Analysis:</strong> Comprehensive framework for educationboard.in evaluation</li>
+                            <li><strong>SEO Technical Audit:</strong> Complete website optimization checklist</li>
+                            <li><strong>Social Media Audit:</strong> Platform presence evaluation</li>
+                            <li><strong>Competitor Analysis:</strong> Market positioning assessment</li>
+                        </ul>
+                        
+                        <h3>Audience Personas</h3>
+                        <ul>
+                            <li><strong>Rural Youth Aspirant:</strong> 17-19 years, rural Bihar/Jharkhand/Bengal</li>
+                            <li><strong>Career Switcher Professional:</strong> 25-35 years, seeking skill upgrade</li>
+                            <li><strong>Educational Administrator:</strong> School/college decision makers</li>
+                            <li><strong>Industry Partner:</strong> Employers seeking skilled workforce</li>
+                        </ul>
+                        
+                        <h3>Content Strategy</h3>
+                        <p>Empowering, skill-based, aspirational messaging with regional customization for Bihar, Jharkhand, and West Bengal.</p>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="1_Audit/SWOT_Analysis_Template.md" target="_blank" class="btn btn-primary">View SWOT Template</a>
+                            <a href="2_Persona/Detailed_Audience_Personas.md" target="_blank" class="btn btn-secondary">View Personas</a>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'content':
+                    htmlContent = `
+                        <h2>🎨 Day 2: Content Creation & Platform Setup</h2>
+                        <h3>Social Media Assets</h3>
+                        <ul>
+                            <li><strong>Brand Guidelines:</strong> Complete visual identity framework</li>
+                            <li><strong>Platform Templates:</strong> Facebook, Instagram, LinkedIn, YouTube</li>
+                            <li><strong>Content Buckets:</strong> Alumni Success, Course Highlights, Partner Talks, Testimonials</li>
+                            <li><strong>Regional Variations:</strong> Localized content for target states</li>
+                        </ul>
+                        
+                        <h3>Email Marketing</h3>
+                        <ul>
+                            <li><strong>Mailchimp Setup Guide:</strong> Step-by-step configuration</li>
+                            <li><strong>Welcome Email Series:</strong> 4-email automation sequence</li>
+                            <li><strong>Weekly Newsletter:</strong> Ongoing engagement template</li>
+                            <li><strong>Segmentation Strategy:</strong> Persona-based targeting</li>
+                        </ul>
+                        
+                        <h3>Video & Visual Content</h3>
+                        <ul>
+                            <li><strong>30-second Intro Video:</strong> EBVTD brand introduction</li>
+                            <li><strong>Course Infographics:</strong> Visual course highlights</li>
+                            <li><strong>Social Media Posts:</strong> Ready-to-use templates</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="4_Social_Assets/EBVTD_Brand_Guidelines.md" target="_blank" class="btn btn-primary">View Brand Guidelines</a>
+                            <a href="6_Email_WhatsApp/Mailchimp_Setup_Guide.md" target="_blank" class="btn btn-secondary">Email Setup Guide</a>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'execution':
+                    htmlContent = `
+                        <h2>🚀 Day 3: Campaign Execution & Analytics</h2>
+                        <h3>Campaign Launch</h3>
+                        <ul>
+                            <li><strong>Hashtag Campaign:</strong> #SkillIndiaWithEBVTD activation</li>
+                            <li><strong>Influencer Outreach:</strong> 5 micro-influencer strategy</li>
+                            <li><strong>Paid Advertising:</strong> ₹500 Facebook/Instagram ads targeting Bihar, Jharkhand, Bengal</li>
+                            <li><strong>Cross-platform Coordination:</strong> Synchronized content deployment</li>
+                        </ul>
+                        
+                        <h3>Analytics & Tracking</h3>
+                        <ul>
+                            <li><strong>Real-time Dashboard:</strong> Live campaign performance tracking</li>
+                            <li><strong>Platform Metrics:</strong> Facebook, Instagram, LinkedIn, YouTube analytics</li>
+                            <li><strong>Goal Tracking:</strong> 200% traffic increase, 100 leads, 5% engagement, 10K reach</li>
+                            <li><strong>ROI Measurement:</strong> Cost per acquisition and conversion tracking</li>
+                        </ul>
+                        
+                        <h3>Crisis Management</h3>
+                        <ul>
+                            <li><strong>Response Protocols:</strong> 3-level crisis classification</li>
+                            <li><strong>Team Structure:</strong> Defined roles and escalation matrix</li>
+                            <li><strong>Template Responses:</strong> Pre-approved crisis communication</li>
+                            <li><strong>Recovery Strategies:</strong> Reputation rebuilding framework</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="8_Analytics/Comprehensive_Analytics_Dashboard.html" target="_blank" class="btn btn-primary">Analytics Dashboard</a>
+                            <a href="7_Campaign_Plan/Crisis_Management_Plan.md" target="_blank" class="btn btn-secondary">Crisis Plan</a>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'resources':
+                    htmlContent = `
+                        <h2>📚 Campaign Resources & Templates</h2>
+                        <h3>Setup Guides</h3>
+                        <ul>
+                            <li><strong>Mailchimp Configuration:</strong> Email marketing platform setup</li>
+                            <li><strong>Social Media Setup:</strong> Platform optimization guides</li>
+                            <li><strong>Analytics Installation:</strong> Google Analytics and tracking setup</li>
+                            <li><strong>Influencer Identification:</strong> Systematic approach to finding partners</li>
+                        </ul>
+                        
+                        <h3>Templates & Assets</h3>
+                        <ul>
+                            <li><strong>Social Media Posts:</strong> Ready-to-use content templates</li>
+                            <li><strong>Email Templates:</strong> Welcome series and newsletters</li>
+                            <li><strong>Brand Assets:</strong> Logos, color palettes, typography guides</li>
+                            <li><strong>Content Calendar:</strong> 30-day planning template</li>
+                        </ul>
+                        
+                        <h3>Strategic Documents</h3>
+                        <ul>
+                            <li><strong>Regional Content Strategy:</strong> State-specific approaches</li>
+                            <li><strong>Persona Strategies:</strong> Audience-specific tactics</li>
+                            <li><strong>Crisis Management:</strong> Emergency response protocols</li>
+                            <li><strong>Performance Tracking:</strong> KPI measurement frameworks</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="3_Content_Calendar/Regional_Content_Strategy.md" target="_blank" class="btn btn-primary">Regional Strategy</a>
+                            <a href="7_Campaign_Plan/Influencer_Identification_Strategy.md" target="_blank" class="btn btn-secondary">Influencer Guide</a>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'overview':
+                    htmlContent = `
+                        <h2>📋 Complete Campaign Overview</h2>
+                        <h3>Campaign Objectives</h3>
+                        <ul>
+                            <li>Increase website traffic to educationboard.in by 200%</li>
+                            <li>Generate 100+ qualified leads</li>
+                            <li>Achieve 5% average engagement rate across platforms</li>
+                            <li>Reach 10,000+ people in target regions</li>
+                            <li>Establish strong brand identity and recall</li>
+                        </ul>
+                        
+                        <h3>Success Metrics</h3>
+                        <ul>
+                            <li><strong>Website Traffic:</strong> Baseline + 200% increase</li>
+                            <li><strong>Social Reach:</strong> 10,000+ people across all platforms</li>
+                            <li><strong>Engagement:</strong> 5% average rate (likes, comments, shares)</li>
+                            <li><strong>Lead Generation:</strong> 100+ form submissions/inquiries</li>
+                            <li><strong>Brand Awareness:</strong> 50+ mentions and user-generated content</li>
+                        </ul>
+                        
+                        <h3>Budget Allocation</h3>
+                        <ul>
+                            <li><strong>Paid Advertising:</strong> ₹500 (Facebook/Instagram ads)</li>
+                            <li><strong>Influencer Partnerships:</strong> ₹15,000-25,000</li>
+                            <li><strong>Content Creation:</strong> Internal resources</li>
+                            <li><strong>Tools & Platforms:</strong> Free tiers (Mailchimp, Canva, etc.)</li>
+                        </ul>
+                        
+                        <h3>Timeline</h3>
+                        <ul>
+                            <li><strong>Day 1:</strong> Foundation setup, audit completion, persona finalization</li>
+                            <li><strong>Day 2:</strong> Content creation, platform setup, email marketing launch</li>
+                            <li><strong>Day 3:</strong> Campaign launch, influencer activation, analytics monitoring</li>
+                            <li><strong>Ongoing:</strong> Performance tracking, optimization, reporting</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <a href="EduReach_360_Execution_Dashboard.html" target="_blank" class="btn btn-primary">Launch Dashboard</a>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            content.innerHTML = htmlContent;
+            modal.style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('sectionModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('sectionModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.nav-card, .feature-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

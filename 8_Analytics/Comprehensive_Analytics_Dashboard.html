@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduReach 360 - Analytics Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .metric-title {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .metric-icon {
+            font-size: 2em;
+            opacity: 0.7;
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .metric-change {
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .positive { background: #d4edda; color: #155724; }
+        .negative { background: #f8d7da; color: #721c24; }
+        .neutral { background: #e2e3e5; color: #383d41; }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .chart-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .platform-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .platform-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid;
+        }
+        
+        .facebook { border-left-color: #1877f2; }
+        .instagram { border-left-color: #e4405f; }
+        .linkedin { border-left-color: #0077b5; }
+        .youtube { border-left-color: #ff0000; }
+        .website { border-left-color: #28a745; }
+        
+        .platform-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .platform-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .goals-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .goal-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .goal-progress {
+            width: 200px;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: width 0.3s ease;
+        }
+        
+        .data-input-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .update-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .update-btn:hover {
+            background: #2980b9;
+        }
+        
+        .export-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .export-btn {
+            background: #27ae60;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .export-btn:hover {
+            background: #219a52;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>📊 EduReach 360 Analytics Dashboard</h1>
+            <p>Real-time Campaign Performance Tracking</p>
+            <p><strong>Campaign Period:</strong> <span id="campaignDates">Aug 1-3, 2025</span></p>
+        </div>
+        
+        <!-- Key Metrics Overview -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Website Traffic</span>
+                    <span class="metric-icon">🌐</span>
+                </div>
+                <div class="metric-value" id="websiteTraffic">0</div>
+                <span class="metric-change neutral" id="trafficChange">Baseline</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Total Reach</span>
+                    <span class="metric-icon">👥</span>
+                </div>
+                <div class="metric-value" id="totalReach">0</div>
+                <span class="metric-change neutral" id="reachChange">Starting</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Engagement Rate</span>
+                    <span class="metric-icon">💬</span>
+                </div>
+                <div class="metric-value" id="engagementRate">0%</div>
+                <span class="metric-change neutral" id="engagementChange">Tracking</span>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Lead Generation</span>
+                    <span class="metric-icon">🎯</span>
+                </div>
+                <div class="metric-value" id="leadGeneration">0</div>
+                <span class="metric-change neutral" id="leadChange">New Campaign</span>
+            </div>
+        </div>
+        
+        <!-- Platform-Specific Metrics -->
+        <div class="chart-container">
+            <h2 class="chart-title">Platform Performance</h2>
+            <div class="platform-metrics">
+                <div class="platform-card facebook">
+                    <div class="platform-name">📘 Facebook</div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="fbLikes">0</div>
+                            <div class="stat-label">Page Likes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="fbReach">0</div>
+                            <div class="stat-label">Post Reach</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="fbEngagement">0</div>
+                            <div class="stat-label">Engagement</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="fbShares">0</div>
+                            <div class="stat-label">Shares</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="platform-card instagram">
+                    <div class="platform-name">📸 Instagram</div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="igFollowers">0</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="igReelsViews">0</div>
+                            <div class="stat-label">Reels Views</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="igLikes">0</div>
+                            <div class="stat-label">Total Likes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="igComments">0</div>
+                            <div class="stat-label">Comments</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="platform-card linkedin">
+                    <div class="platform-name">💼 LinkedIn</div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="liFollowers">0</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="liImpressions">0</div>
+                            <div class="stat-label">Impressions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="liClicks">0</div>
+                            <div class="stat-label">Link Clicks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="liShares">0</div>
+                            <div class="stat-label">Shares</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="platform-card youtube">
+                    <div class="platform-name">📺 YouTube</div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="ytViews">0</div>
+                            <div class="stat-label">Video Views</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="ytSubscribers">0</div>
+                            <div class="stat-label">Subscribers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="ytLikes">0</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="ytComments">0</div>
+                            <div class="stat-label">Comments</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="platform-card website">
+                    <div class="platform-name">🌐 Website</div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="webVisitors">0</div>
+                            <div class="stat-label">Unique Visitors</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="webPageViews">0</div>
+                            <div class="stat-label">Page Views</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="webBounceRate">0%</div>
+                            <div class="stat-label">Bounce Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="webFormSubmissions">0</div>
+                            <div class="stat-label">Form Submissions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Campaign Goals Progress -->
+        <div class="goals-section">
+            <h2 class="chart-title">Campaign Goals Progress</h2>
+            <div class="goal-item">
+                <span>Increase Website Traffic by 200%</span>
+                <div class="goal-progress">
+                    <div class="progress-fill" style="width: 0%" id="goalTraffic"></div>
+                </div>
+                <span id="goalTrafficText">0%</span>
+            </div>
+            <div class="goal-item">
+                <span>Generate 100 New Leads</span>
+                <div class="goal-progress">
+                    <div class="progress-fill" style="width: 0%" id="goalLeads"></div>
+                </div>
+                <span id="goalLeadsText">0%</span>
+            </div>
+            <div class="goal-item">
+                <span>Achieve 5% Engagement Rate</span>
+                <div class="goal-progress">
+                    <div class="progress-fill" style="width: 0%" id="goalEngagement"></div>
+                </div>
+                <span id="goalEngagementText">0%</span>
+            </div>
+            <div class="goal-item">
+                <span>Reach 10,000 People</span>
+                <div class="goal-progress">
+                    <div class="progress-fill" style="width: 0%" id="goalReach"></div>
+                </div>
+                <span id="goalReachText">0%</span>
+            </div>
+        </div>
+        
+        <!-- Data Input Section -->
+        <div class="data-input-section">
+            <h2 class="chart-title">Update Metrics</h2>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label class="input-label">Website Traffic</label>
+                    <input type="number" class="input-field" id="inputWebTraffic" placeholder="Enter visitor count">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Facebook Page Likes</label>
+                    <input type="number" class="input-field" id="inputFbLikes" placeholder="Enter likes count">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Instagram Followers</label>
+                    <input type="number" class="input-field" id="inputIgFollowers" placeholder="Enter followers count">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">LinkedIn Impressions</label>
+                    <input type="number" class="input-field" id="inputLiImpressions" placeholder="Enter impressions">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">YouTube Views</label>
+                    <input type="number" class="input-field" id="inputYtViews" placeholder="Enter video views">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Form Submissions</label>
+                    <input type="number" class="input-field" id="inputFormSubmissions" placeholder="Enter submissions">
+                </div>
+            </div>
+            <button class="update-btn" onclick="updateMetrics()">Update Dashboard</button>
+        </div>
+        
+        <!-- Export Section -->
+        <div class="export-section">
+            <h3>Export Reports</h3>
+            <button class="export-btn" onclick="exportToCSV()">📊 Export to CSV</button>
+            <button class="export-btn" onclick="generateReport()">📄 Generate Report</button>
+            <button class="export-btn" onclick="shareResults()">📤 Share Results</button>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize dashboard
+        let campaignData = {
+            websiteTraffic: 0,
+            totalReach: 0,
+            engagementRate: 0,
+            leadGeneration: 0,
+            facebook: { likes: 0, reach: 0, engagement: 0, shares: 0 },
+            instagram: { followers: 0, reelsViews: 0, likes: 0, comments: 0 },
+            linkedin: { followers: 0, impressions: 0, clicks: 0, shares: 0 },
+            youtube: { views: 0, subscribers: 0, likes: 0, comments: 0 },
+            website: { visitors: 0, pageViews: 0, bounceRate: 0, formSubmissions: 0 }
+        };
+        
+        function updateMetrics() {
+            // Get input values
+            const webTraffic = parseInt(document.getElementById('inputWebTraffic').value) || 0;
+            const fbLikes = parseInt(document.getElementById('inputFbLikes').value) || 0;
+            const igFollowers = parseInt(document.getElementById('inputIgFollowers').value) || 0;
+            const liImpressions = parseInt(document.getElementById('inputLiImpressions').value) || 0;
+            const ytViews = parseInt(document.getElementById('inputYtViews').value) || 0;
+            const formSubmissions = parseInt(document.getElementById('inputFormSubmissions').value) || 0;
+            
+            // Update data
+            campaignData.websiteTraffic = webTraffic;
+            campaignData.facebook.likes = fbLikes;
+            campaignData.instagram.followers = igFollowers;
+            campaignData.linkedin.impressions = liImpressions;
+            campaignData.youtube.views = ytViews;
+            campaignData.website.formSubmissions = formSubmissions;
+            
+            // Calculate derived metrics
+            campaignData.totalReach = fbLikes + igFollowers + liImpressions + ytViews;
+            campaignData.leadGeneration = formSubmissions;
+            campaignData.engagementRate = campaignData.totalReach > 0 ? 
+                ((fbLikes + igFollowers) / campaignData.totalReach * 100).toFixed(1) : 0;
+            
+            // Update display
+            updateDisplay();
+            updateGoalProgress();
+            
+            // Save to localStorage
+            localStorage.setItem('edureach360Analytics', JSON.stringify(campaignData));
+            
+            alert('Dashboard updated successfully!');
+        }
+        
+        function updateDisplay() {
+            document.getElementById('websiteTraffic').textContent = campaignData.websiteTraffic.toLocaleString();
+            document.getElementById('totalReach').textContent = campaignData.totalReach.toLocaleString();
+            document.getElementById('engagementRate').textContent = campaignData.engagementRate + '%';
+            document.getElementById('leadGeneration').textContent = campaignData.leadGeneration;
+            
+            // Platform metrics
+            document.getElementById('fbLikes').textContent = campaignData.facebook.likes.toLocaleString();
+            document.getElementById('igFollowers').textContent = campaignData.instagram.followers.toLocaleString();
+            document.getElementById('liImpressions').textContent = campaignData.linkedin.impressions.toLocaleString();
+            document.getElementById('ytViews').textContent = campaignData.youtube.views.toLocaleString();
+            document.getElementById('webFormSubmissions').textContent = campaignData.website.formSubmissions;
+        }
+        
+        function updateGoalProgress() {
+            // Traffic goal (200% increase from baseline of 100)
+            const trafficProgress = Math.min((campaignData.websiteTraffic / 300) * 100, 100);
+            document.getElementById('goalTraffic').style.width = trafficProgress + '%';
+            document.getElementById('goalTrafficText').textContent = Math.round(trafficProgress) + '%';
+            
+            // Leads goal (100 leads)
+            const leadsProgress = Math.min((campaignData.leadGeneration / 100) * 100, 100);
+            document.getElementById('goalLeads').style.width = leadsProgress + '%';
+            document.getElementById('goalLeadsText').textContent = Math.round(leadsProgress) + '%';
+            
+            // Engagement goal (5%)
+            const engagementProgress = Math.min((parseFloat(campaignData.engagementRate) / 5) * 100, 100);
+            document.getElementById('goalEngagement').style.width = engagementProgress + '%';
+            document.getElementById('goalEngagementText').textContent = Math.round(engagementProgress) + '%';
+            
+            // Reach goal (10,000 people)
+            const reachProgress = Math.min((campaignData.totalReach / 10000) * 100, 100);
+            document.getElementById('goalReach').style.width = reachProgress + '%';
+            document.getElementById('goalReachText').textContent = Math.round(reachProgress) + '%';
+        }
+        
+        function exportToCSV() {
+            const csvData = [
+                ['Metric', 'Value'],
+                ['Website Traffic', campaignData.websiteTraffic],
+                ['Total Reach', campaignData.totalReach],
+                ['Engagement Rate', campaignData.engagementRate + '%'],
+                ['Lead Generation', campaignData.leadGeneration],
+                ['Facebook Likes', campaignData.facebook.likes],
+                ['Instagram Followers', campaignData.instagram.followers],
+                ['LinkedIn Impressions', campaignData.linkedin.impressions],
+                ['YouTube Views', campaignData.youtube.views],
+                ['Form Submissions', campaignData.website.formSubmissions]
+            ];
+            
+            const csvContent = csvData.map(row => row.join(',')).join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'edureach360_analytics.csv';
+            a.click();
+        }
+        
+        function generateReport() {
+            const reportWindow = window.open('', '_blank');
+            reportWindow.document.write(`
+                <html>
+                <head><title>EduReach 360 Campaign Report</title></head>
+                <body style="font-family: Arial, sans-serif; padding: 20px;">
+                    <h1>EduReach 360 Campaign Report</h1>
+                    <h2>Key Metrics</h2>
+                    <ul>
+                        <li>Website Traffic: ${campaignData.websiteTraffic.toLocaleString()}</li>
+                        <li>Total Reach: ${campaignData.totalReach.toLocaleString()}</li>
+                        <li>Engagement Rate: ${campaignData.engagementRate}%</li>
+                        <li>Lead Generation: ${campaignData.leadGeneration}</li>
+                    </ul>
+                    <h2>Platform Performance</h2>
+                    <ul>
+                        <li>Facebook Likes: ${campaignData.facebook.likes.toLocaleString()}</li>
+                        <li>Instagram Followers: ${campaignData.instagram.followers.toLocaleString()}</li>
+                        <li>LinkedIn Impressions: ${campaignData.linkedin.impressions.toLocaleString()}</li>
+                        <li>YouTube Views: ${campaignData.youtube.views.toLocaleString()}</li>
+                    </ul>
+                </body>
+                </html>
+            `);
+        }
+        
+        function shareResults() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'EduReach 360 Campaign Results',
+                    text: `Campaign Results: ${campaignData.totalReach.toLocaleString()} total reach, ${campaignData.leadGeneration} leads generated`,
+                    url: window.location.href
+                });
+            } else {
+                alert('Share functionality not supported. Use the export options instead.');
+            }
+        }
+        
+        // Load saved data on page load
+        window.addEventListener('load', function() {
+            const savedData = localStorage.getItem('edureach360Analytics');
+            if (savedData) {
+                campaignData = JSON.parse(savedData);
+                updateDisplay();
+                updateGoalProgress();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "edureach-360-campaign",
+  "version": "1.0.0",
+  "description": "EduReach 360: 3-Day Digital Marketing Campaign Presentation for EBVTD",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "start": "python -m http.server 8080",
+    "build": "echo 'Static site - no build required'",
+    "preview": "python -m http.server 4173"
+  },
+  "keywords": [
+    "digital-marketing",
+    "campaign",
+    "education",
+    "ebvtd",
+    "presentation",
+    "vercel"
+  ],
+  "author": "EBVTD Digital Marketing Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ebvtd/edureach-360-campaign"
+  },
+  "homepage": "https://edureach-360-campaign.vercel.app"
+}

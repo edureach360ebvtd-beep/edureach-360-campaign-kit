@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduReach 360: Digital Marketing Campaign Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .campaign-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .days-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .day-header {
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .day-1 .day-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .day-2 .day-header {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .day-3 .day-header {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        
+        .day-content {
+            padding: 25px;
+        }
+        
+        .task-list {
+            list-style: none;
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .task-checkbox {
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+        
+        .task-text {
+            flex: 1;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .deliverables {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .deliverables h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .deliverables ul {
+            color: #2c3e50;
+            padding-left: 20px;
+        }
+        
+        .deliverables li {
+            margin-bottom: 5px;
+        }
+        
+        .quick-links {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .link-button {
+            background: #3498db;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            display: block;
+        }
+        
+        .link-button:hover {
+            background: #2980b9;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .hashtag-display {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 EduReach 360</h1>
+            <p>3-Day Digital Marketing Launchpad</p>
+        </div>
+        
+        <div class="hashtag-display">
+            #SkillIndiaWithEBVTD
+        </div>
+        
+        <div class="campaign-info">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🎯 Target Audience</h3>
+                    <p>Students (Class 9–Graduation), Vocational Aspirants, School/College Administrators, Skill Development Institutions, Working Professionals, Industry Partners & Employers</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌐 Primary Website</h3>
+                    <p><a href="https://educationboard.in" target="_blank" style="color: #3498db;">https://educationboard.in</a></p>
+                </div>
+                <div class="info-card">
+                    <h3>📧 Contact</h3>
+                    <p>Mrs. Mansi Chakrraborty<br>
+                    Mobile: +91 8420752222<br>
+                    Email: info@iitgroup.in</p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Office Address</h3>
+                    <p>238B AJC Bose Road, 1st Floor, Kolkata 700020</p>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="overallProgress"></div>
+            </div>
+            <p style="text-align: center; margin-top: 10px;">Campaign Progress: <span id="progressText">0%</span></p>
+        </div>
+        
+        <div class="days-container">
+            <!-- Day 1 -->
+            <div class="day-card day-1">
+                <div class="day-header">
+                    <h2>📅 DAY 1</h2>
+                    <h3>Foundation & Strategy</h3>
+                    <p>"Digital Footprint & Messaging Blueprint"</p>
+                </div>
+                <div class="day-content">
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Digital Audit</strong><br>
+                                SWOT analysis of website, check responsiveness, SEO, loading speed, content clarity, social media presence audit
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Define Objectives</strong><br>
+                                Prioritize awareness vs enrollments vs partnerships, focus on key offerings
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Build Audience Personas</strong><br>
+                                Create 3–4 learner/partner personas (Rural Youth, Career Switcher, etc.)
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Content Planning</strong><br>
+                                Define messaging tone, outline content buckets (Alumni Success, Course Highlights, Partner Talks, Testimonials)
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="deliverables">
+                        <h4>📋 Deliverables</h4>
+                        <ul>
+                            <li>Digital Audit Report</li>
+                            <li>Audience Persona Deck</li>
+                            <li>Content Calendar Template (30 days)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-card day-2">
+                <div class="day-header">
+                    <h2>📅 DAY 2</h2>
+                    <h3>Content Creation & Platform Setup</h3>
+                    <p>"Telling the Story Right"</p>
+                </div>
+                <div class="day-content">
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Social Media Kickoff</strong><br>
+                                Create/revamp EBVTD handles, design branding templates, post 3 types of content
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Video & Visual Campaign</strong><br>
+                                Create 30-sec intro video, design posters/infographics of course offerings
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Email Marketing Setup</strong><br>
+                                Set up Mailchimp, design welcome mail + weekly update format
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>WhatsApp Broadcast</strong><br>
+                                Create digital poster + text + CTA for school/college groups
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="deliverables">
+                        <h4>📋 Deliverables</h4>
+                        <ul>
+                            <li>3 Social Media Posts + 1 Reels Format</li>
+                            <li>1 Intro Video + 2 Posters</li>
+                            <li>Email Template & WhatsApp Message Kit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-card day-3">
+                <div class="day-header">
+                    <h2>📅 DAY 3</h2>
+                    <h3>Campaign Execution & Analytics</h3>
+                    <p>"Launch, Engage, Measure"</p>
+                </div>
+                <div class="day-content">
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Campaign Launch</strong><br>
+                                Go live with #SkillIndiaWithEBVTD, invite user stories, tag institutions/partners
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Influencer & Alumni Outreach</strong><br>
+                                Identify 5 micro-influencers or successful alumni for endorsements
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Ad Setup & Promotions</strong><br>
+                                Set up FB/Insta ad with ₹500 budget (Bihar, Jharkhand, Bengal)
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Analytics Dashboard</strong><br>
+                                Track website traffic, social engagement, form submissions/enquiries
+                            </div>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+                            <div class="task-text">
+                                <strong>Feedback Collection</strong><br>
+                                Create online form for user/institution feedback on digital experience
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="deliverables">
+                        <h4>📋 Deliverables</h4>
+                        <ul>
+                            <li>Live Campaign Report</li>
+                            <li>Influencer Outreach Email Template</li>
+                            <li>Basic Analytics Dashboard</li>
+                            <li>Feedback Report</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-links">
+            <h2>🔗 Quick Access Links</h2>
+            <div class="links-grid">
+                <a href="https://educationboard.in" class="link-button" target="_blank">🌐 EBVTD Website</a>
+                <a href="https://www.canva.com" class="link-button" target="_blank">🎨 Canva Templates</a>
+                <a href="https://mailchimp.com" class="link-button" target="_blank">📧 Mailchimp Setup</a>
+                <a href="https://business.facebook.com" class="link-button" target="_blank">📱 Facebook Ads</a>
+                <a href="https://analytics.google.com" class="link-button" target="_blank">📊 Google Analytics</a>
+                <a href="https://datastudio.google.com" class="link-button" target="_blank">📈 Data Studio</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const checkedBoxes = document.querySelectorAll('.task-checkbox:checked');
+            const progress = (checkedBoxes.length / checkboxes.length) * 100;
+            
+            document.getElementById('overallProgress').style.width = progress + '%';
+            document.getElementById('progressText').textContent = Math.round(progress) + '%';
+            
+            // Save progress to localStorage
+            const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+            localStorage.setItem('edureach360Progress', JSON.stringify(checkedStates));
+        }
+        
+        // Load progress from localStorage
+        window.addEventListener('load', function() {
+            const savedProgress = localStorage.getItem('edureach360Progress');
+            if (savedProgress) {
+                const checkedStates = JSON.parse(savedProgress);
+                const checkboxes = document.querySelectorAll('.task-checkbox');
+                checkboxes.forEach((cb, index) => {
+                    if (checkedStates[index]) {
+                        cb.checked = true;
+                    }
+                });
+                updateProgress();
+            }
+        });
+    </script>
+</body>
+</html>

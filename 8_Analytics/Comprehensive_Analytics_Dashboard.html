@@ -13,8 +13,11 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f7fa;
+            margin: 0;
             padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
         }
         
         .dashboard-container {
@@ -40,11 +43,13 @@
         }
         
         .metric-card {
-            background: white;
+            background: rgba(30, 41, 59, 0.95);
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
         }
         
         .metric-card:hover {

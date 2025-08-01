@@ -1,6 +1,7 @@
 {
-  "version": 2,
-  "name": "edureach-360-campaign",
+  "buildCommand": "echo 'Static site ready'",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No dependencies to install'",
   "headers": [
     {
       "source": "/(.*)",

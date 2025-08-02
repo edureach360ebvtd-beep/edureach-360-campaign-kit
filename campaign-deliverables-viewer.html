@@ -27,9 +27,9 @@
         .folder-icon { font-size: 2rem; margin-right: 1rem; }
         .folder-title { font-size: 1.4rem; font-weight: bold; color: #2c3e50; }
         .file-list { list-style: none; }
-        .file-item { padding: 0.8rem; margin: 0.5rem 0; background: #f8f9fa; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; }
-        .file-item:hover { background: #e9ecef; transform: translateX(5px); }
-        .file-info { display: flex; align-items: center; }
+        .file-list.scrollable { max-height: 200px; overflow-y: auto; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; margin-bottom: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s ease; }
+        .file-item:hover { background: #f1f8ff; transform: translateX(5px); }
         .file-icon { margin-right: 0.8rem; font-size: 1.2rem; }
         .file-name { font-weight: 500; color: #2c3e50; }
         .file-type { background: #3498db; color: white; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
@@ -61,7 +61,7 @@
         <div class="stats-bar">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">43</div>
+                    <div class="stat-number">27</div>
                     <div class="stat-label">Total Files</div>
                 </div>
                 <div class="stat-item">
@@ -130,6 +130,13 @@
                         </div>
                         <div class="file-type">MD</div>
                     </li>
+                    <li class="file-item" onclick="viewFile('2_Persona/EduReach_Persona_Deck.docx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Persona Deck (DOCX)</div>
+                        </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
                 </ul>
             </div>
 
@@ -145,6 +152,20 @@
                             <div class="file-name">Regional Content Strategy</div>
                         </div>
                         <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('3_Content_Calendar/EduReach_30_Day_Content_Calendar.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📊</div>
+                            <div class="file-name">30-Day Content Calendar</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('3_Content_Calendar/EduReach_30_Day_Content_Calendar.xlsx')">
+                        <div class="file-info">
+                            <div class="file-icon">📅</div>
+                            <div class="file-name">30-Day Content Calendar (XLSX)</div>
+                        </div>
+                        <div class="file-type">XLSX</div>
                     </li>
                 </ul>
             </div>
@@ -215,6 +236,20 @@
                         </div>
                         <div class="file-type">MD</div>
                     </li>
+                    <li class="file-item" onclick="viewFile('6_Email_WhatsApp/Email_Template_Welcome.docx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Welcome Email Template</div>
+                        </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('6_Email_WhatsApp/Email_Template_Weekly_Update.docx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Weekly Update Template</div>
+                        </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
                 </ul>
             </div>
 
@@ -238,6 +273,20 @@
                         </div>
                         <div class="file-type">MD</div>
                     </li>
+                    <li class="file-item" onclick="viewFile('7_Campaign_Plan/Campaign_Launch_Plan.docx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Campaign Launch Plan</div>
+                        </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('7_Campaign_Plan/Influencer_Outreach_Email.docx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Influencer Outreach Email</div>
+                        </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
                 </ul>
             </div>
 
@@ -254,6 +303,20 @@
                         </div>
                         <div class="file-type">HTML</div>
                     </li>
+                    <li class="file-item" onclick="viewFile('8_Analytics/Analytics_Report_Template.xlsx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Analytics Report Template</div>
+                        </div>
+                        <div class="file-type">XLSX</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('8_Analytics/Analytics_Tracker_Template.csv')">
+                        <div class="file-info">
+                            <div class="file-icon">📊</div>
+                            <div class="file-name">Analytics Tracker Template</div>
+                        </div>
+                        <div class="file-type">CSV</div>
+                    </li>
                 </ul>
             </div>
 
@@ -263,12 +326,26 @@
                     <div class="folder-title">9. Feedback</div>
                 </div>
                 <ul class="file-list">
-                    <li class="file-item" onclick="viewFile('9_Feedback/Feedback_Form_Template.md')">
+                    <li class="file-item" onclick="viewFile('9_Feedback/Feedback_Form_Template.docx')">
                         <div class="file-info">
                             <div class="file-icon">📝</div>
                             <div class="file-name">Feedback Form Template</div>
                         </div>
+                        <div class="file-type">DOCX</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('9_Feedback/Feedback_Form_Template_Preview.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Feedback Form Template (DOCX)</div>
+                        </div>
                         <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('9_Feedback/Feedback_Summary_Template.xlsx')">
+                        <div class="file-info">
+                            <div class="file-icon">📄</div>
+                            <div class="file-name">Feedback Summary Template</div>
+                        </div>
+                        <div class="file-type">XLSX</div>
                     </li>
                 </ul>
             </div>
@@ -294,21 +371,65 @@
             const fileContent = document.getElementById('fileContent');
             
             modalTitle.textContent = filepath.split('/').pop();
-            fileContent.innerHTML = '<div style="text-align: center; padding: 2rem;"><div style="font-size: 2rem;">🔄</div><p>Loading content...</p></div>';
             modal.style.display = 'block';
             
-            fetch(filepath)
-                .then(response => response.text())
-                .then(content => {
-                    if (filepath.endsWith('.md')) {
+            if (filepath.endsWith('.md')) {
+                // For MD files, use the existing markdown viewer
+                fileContent.innerHTML = '<div style="text-align: center; padding: 2rem;"><div style="font-size: 2rem;">🔄</div><p>Loading content...</p></div>';
+                
+                fetch(filepath)
+                    .then(response => response.text())
+                    .then(content => {
                         fileContent.innerHTML = formatMarkdown(content);
-                    } else {
-                        fileContent.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit;">${content}</pre>`;
-                    }
-                })
-                .catch(error => {
-                    fileContent.innerHTML = `<div style="text-align: center; padding: 2rem; color: #e74c3c;"><div style="font-size: 2rem;">❌</div><p>Error loading file</p></div>`;
-                });
+                    })
+                    .catch(error => {
+                        fileContent.innerHTML = `<div style="text-align: center; padding: 2rem; color: #e74c3c;"><div style="font-size: 2rem;">❌</div><p>Error loading file</p></div>`;
+                    });
+            } else if (filepath.endsWith('.csv')) {
+                // For CSV files, parse and display as a table
+                fileContent.innerHTML = '<div style="text-align: center; padding: 2rem;"><div style="font-size: 2rem;">🔄</div><p>Loading CSV content...</p></div>';
+                
+                fetch(filepath)
+                    .then(response => response.text())
+                    .then(content => {
+                        fileContent.innerHTML = formatCSV(content);
+                    })
+                    .catch(error => {
+                        fileContent.innerHTML = `<div style="text-align: center; padding: 2rem; color: #e74c3c;"><div style="font-size: 2rem;">❌</div><p>Error loading CSV file</p></div>`;
+                    });
+            } else if (filepath.endsWith('.html')) {
+                // For HTML files, display in an iframe
+                fileContent.innerHTML = `<iframe src="${filepath}" style="width: 100%; height: 70vh; border: none; border-radius: 8px;"></iframe>`;
+            } else {
+                // For other file types (DOCX, XLSX, etc.), show download option
+                const fileName = filepath.split('/').pop();
+                const fileType = filepath.split('.').pop().toUpperCase();
+                
+                fileContent.innerHTML = `
+                    <div style="text-align: center; padding: 3rem;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+                        <h3 style="margin-bottom: 1rem; color: #2c3e50;">${fileName}</h3>
+                        <p style="color: #7f8c8d; margin-bottom: 2rem;">This ${fileType} file is ready for download.</p>
+                        <a href="${filepath}" download style="
+                            background: #3498db; 
+                            color: white; 
+                            padding: 1rem 2rem; 
+                            border-radius: 8px; 
+                            text-decoration: none; 
+                            font-weight: bold;
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            font-size: 1.1rem;
+                        ">
+                            📥 Download ${fileType} File
+                        </a>
+                        <p style="color: #95a5a6; margin-top: 1.5rem; font-size: 0.9rem;">
+                            Click the button above to download and open the file with your preferred application.
+                        </p>
+                    </div>
+                `;
+            }
         }
 
         function viewImage(filepath) {
@@ -339,6 +460,41 @@
                 .replace(/(?<!>)$/gm, '</p>');
         }
 
+        function formatCSV(content) {
+            const lines = content.trim().split('\n');
+            if (lines.length === 0) return '<p>Empty CSV file</p>';
+            
+            let html = '<div style="overflow-x: auto; max-height: 60vh;"><table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">';
+            
+            // Header row
+            const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+            html += '<thead><tr style="background: #f8f9fa;">';
+            headers.forEach(header => {
+                html += `<th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: left; font-weight: bold;">${header}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            
+            // Data rows
+            for (let i = 1; i < Math.min(lines.length, 101); i++) { // Limit to 100 rows for performance
+                const cells = lines[i].split(',').map(c => c.trim().replace(/"/g, ''));
+                html += '<tr style="border-bottom: 1px solid #dee2e6;">';
+                cells.forEach(cell => {
+                    html += `<td style="border: 1px solid #dee2e6; padding: 0.75rem;">${cell}</td>`;
+                });
+                html += '</tr>';
+            }
+            
+            html += '</tbody></table></div>';
+            
+            if (lines.length > 101) {
+                html += `<p style="text-align: center; margin-top: 1rem; color: #6c757d;">Showing first 100 rows of ${lines.length - 1} total rows</p>`;
+            }
+            
+            return html;
+        }
+
+
+
         window.onclick = function(event) {
             const modal = document.getElementById('fileModal');
             if (event.target === modal) {
@@ -350,6 +506,18 @@
             if (event.key === 'Escape') {
                 closeModal();
             }
+        });
+
+        // Apply scrollable class to folder cards with more than 3 files
+        document.addEventListener('DOMContentLoaded', function() {
+            const folderCards = document.querySelectorAll('.folder-card');
+            folderCards.forEach(card => {
+                const fileList = card.querySelector('.file-list');
+                const fileItems = fileList.querySelectorAll('.file-item');
+                if (fileItems.length > 3) {
+                    fileList.classList.add('scrollable');
+                }
+            });
         });
     </script>
 </body>

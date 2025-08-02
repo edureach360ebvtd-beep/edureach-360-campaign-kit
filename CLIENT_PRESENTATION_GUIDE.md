@@ -25,7 +25,7 @@
 > "Today I'm excited to present the complete EduReach 360 Campaign Kit - a comprehensive 3-day digital marketing solution designed specifically for EBVTD. What makes this unique is that everything is interactive and immediately usable."
 
 **Key Points to Highlight:**
-- ✅ **100% Complete**: All 46 deliverables across 9 categories
+- ✅ **100% Complete**: All 27 deliverables across 9 categories
 - ✅ **Interactive Experience**: No downloads, everything viewable in browser
 - ✅ **Ready to Deploy**: Can start campaign immediately
 - ✅ **Professional Presentation**: Built for client viewing, not just internal use
@@ -35,7 +35,7 @@
 #### **2.1 Main Landing Page (3 minutes)**
 **Show:** `index.html`
 - Point out the professional design and clear navigation
-- Highlight the statistics: "3-Day Campaign, 9 Categories, 46 Files"
+- Highlight the statistics: "3-Day Campaign, 9 Categories, 27 Files"
 - Explain the different access points
 
 **Script:**

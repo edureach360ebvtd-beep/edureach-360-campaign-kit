@@ -44,7 +44,7 @@ Your complete campaign kit is now live and accessible at:
 ## 🌟 **Unique Features**
 
 **Interactive File Viewer:** Instead of sending you a zip file with dozens of documents, I've created an innovative, interactive viewer where you can:
-- Browse all 46 files across 9 organized categories
+- Browse all 27 files across 9 organized categories
 - View documents directly in your browser (no downloads needed)
 - Access everything on any device (mobile, tablet, desktop)
 - Share with stakeholders for easy review
@@ -55,7 +55,7 @@ Your complete campaign kit is now live and accessible at:
 Visit: https://edureach-360-campaign-kit.vercel.app/
 
 ### **Step 2: Explore Your Options**
-- **📁 Campaign Deliverables** - Interactive viewer with all 46 files
+- **📁 Campaign Deliverables** - Interactive viewer with all 27 files
 - **📚 Campaign Resources** - Quick access hub with organized information
 - **🤖 AI Assistant** - Samvedna AI for ongoing campaign support
 - **📊 Analytics Dashboard** - Real-time tracking and reporting

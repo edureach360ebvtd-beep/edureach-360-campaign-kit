@@ -32,12 +32,12 @@
 ## 🎨 Brand Assets & Guidelines:
 
 ### **EBVTD Color Palette:**
-- Primary Blue: #2c3e50
-- Secondary Blue: #3498db
-- Success Green: #27ae60
-- Warning Orange: #f39c12
-- Text Dark: #2c3e50
-- Background Light: #f8f9fa
+- **Primary Blue**: #2c3e50
+- **Secondary Blue**: #3498db
+- **Success Green**: #27ae60
+- **Warning Orange**: #f39c12
+- **Text Dark**: #2c3e50
+- **Background Light**: #f8f9fa
 
 ### **Typography:**
 - **Headlines**: Montserrat Bold
@@ -48,61 +48,19 @@
 - Always maintain clear space around logo
 - Use white logo on dark backgrounds
 - Use dark logo on light backgrounds
-- Minimum size: 120px width
+- Minimum size: 120px width for digital use
 
-## 📋 Quick Start Instructions:
+## 🚀 Quick Start Guide:
 
-### **Step 1: Access Templates**
-1. Click on any template link above
-2. Sign in to your Canva account (free account works)
-3. Click "Use this template" or "Customize this template"
+1. **Click any template link above**
+2. **Customize with EBVTD branding**
+3. **Add your specific content**
+4. **Download in appropriate format**
+5. **Schedule or post immediately**
 
-### **Step 2: Customize Content**
-1. Replace placeholder text with your specific content
-2. Upload and replace images with relevant photos
-3. Ensure brand colors match EBVTD guidelines
-4. Add appropriate hashtags (#SkillIndiaWithEBVTD)
-
-### **Step 3: Export & Use**
-1. Download as PNG for social media posts
-2. Download as JPG for email newsletters
-3. Download as PDF for print materials
-4. Schedule posts using your social media management tool
-
-## 🎯 Content Ideas by Template:
-
-### **"Did You Know?" Posts:**
-- "85% of EBVTD graduates find employment within 6 months"
-- "Digital skills training increases earning potential by 40%"
-- "EBVTD has 50+ training centers across Eastern India"
-
-### **Success Stories:**
-- Alumni career transformations
-- Student achievement highlights
-- Industry partnership successes
-
-### **Course Highlights:**
-- New program launches
-- Certification achievements
-- Industry-relevant skill focus
-
-## 📱 Platform-Specific Tips:
-
-### **Facebook:**
-- Use 1200x630px for link previews
-- Include engaging captions with questions
-- Use relevant hashtags (3-5 max)
-
-### **Instagram:**
-- Square posts perform best (1080x1080px)
-- Use Stories for behind-the-scenes content
-- Reels for educational quick tips
-
-### **LinkedIn:**
-- Professional tone and industry focus
-- Include company updates and achievements
-- Tag relevant industry partners
+## 📞 Support:
+For template customization help, contact the digital marketing team.
 
 ---
-
-**Note**: These templates are designed to maintain brand consistency while allowing easy customization for different campaigns and content types. All templates follow EBVTD brand guidelines and are optimized for each social media platform.
+**Last Updated**: August 2025  
+**Created for**: EduReach 360 Campaign Kit

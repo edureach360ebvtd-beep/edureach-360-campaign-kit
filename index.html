@@ -354,12 +354,26 @@
                     </div>
                 </div>
                 
+                <div class="nav-card" onclick="window.open('campaign-deliverables-viewer.html', '_blank')">
+                    <span class="icon">📁</span>
+                    <h3>Campaign Deliverables</h3>
+                    <p>Interactive File Viewer - Browse All Assets</p>
+                    <div class="deliverables">46 Files • 9 Categories • 100% Complete</div>
+                </div>
+                
+                <div class="nav-card" onclick="window.open('ai-chatbot-integration.html', '_blank')">
+                    <span class="icon">🤖</span>
+                    <h3>AI Assistant</h3>
+                    <p>Samvedna AI - Your Campaign Guide</p>
+                    <div class="deliverables">Interactive AI Support</div>
+                </div>
+                
                 <div class="nav-card" onclick="openSection('resources')">
                     <span class="icon">📚</span>
                     <h3>Campaign Resources</h3>
-                    <p>Templates, guides, and reference materials</p>
+                    <p>Quick reference guides and key information</p>
                     <div class="deliverables">
-                        <strong>Includes:</strong> Setup Guides, Templates, Best Practices, Crisis Plans
+                        <strong>Includes:</strong> Setup Guides, Best Practices, Quick References
                     </div>
                 </div>
             </div>
@@ -408,7 +422,7 @@
                 <a href="EduReach_360_Execution_Dashboard.html" class="btn btn-primary" target="_blank">
                     🚀 Start Campaign Dashboard
                 </a>
-                <a href="#" class="btn btn-secondary" onclick="openSection('overview')">
+                <a href="campaign-deliverables-viewer.html" target="_blank" class="btn btn-secondary">
                     📋 View Complete Overview
                 </a>
                 <a href="8_Analytics/Comprehensive_Analytics_Dashboard.html" class="btn btn-secondary" target="_blank">
@@ -561,34 +575,47 @@
                     
                 case 'resources':
                     htmlContent = `
-                        <h2>📚 Campaign Resources & Templates</h2>
-                        <h3>Setup Guides</h3>
-                        <ul>
-                            <li><strong>Mailchimp Configuration:</strong> Email marketing platform setup</li>
-                            <li><strong>Social Media Setup:</strong> Platform optimization guides</li>
-                            <li><strong>Analytics Installation:</strong> Google Analytics and tracking setup</li>
-                            <li><strong>Influencer Identification:</strong> Systematic approach to finding partners</li>
-                        </ul>
+                        <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                            <h2 style="color: #2c3e50; text-align: center; margin-bottom: 1.5rem;">📚 Campaign Resources & Quick Access</h2>
+                            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Essential guides and templates for successful campaign execution</p>
+                        </div>
                         
-                        <h3>Templates & Assets</h3>
-                        <ul>
-                            <li><strong>Social Media Posts:</strong> Ready-to-use content templates</li>
-                            <li><strong>Email Templates:</strong> Welcome series and newsletters</li>
-                            <li><strong>Brand Assets:</strong> Logos, color palettes, typography guides</li>
-                            <li><strong>Content Calendar:</strong> 30-day planning template</li>
-                        </ul>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                            <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 4px solid #3498db;">
+                                <h3 style="color: #3498db; margin-bottom: 1rem;">🔧 Setup Guides</h3>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">✅ <strong>Mailchimp Setup:</strong> Complete email platform configuration</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">✅ <strong>SEO Audit Checklist:</strong> Technical optimization guide</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">✅ <strong>Crisis Management:</strong> Emergency response protocols</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 4px solid #27ae60;">
+                                <h3 style="color: #27ae60; margin-bottom: 1rem;">📋 Templates & Assets</h3>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">🎨 <strong>Brand Guidelines:</strong> Complete visual identity</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">📱 <strong>Social Media Templates:</strong> Facebook, Instagram, LinkedIn</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">📧 <strong>Email Templates:</strong> Welcome & weekly updates</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 4px solid #e74c3c;">
+                                <h3 style="color: #e74c3c; margin-bottom: 1rem;">📊 Analytics & Tracking</h3>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">📈 <strong>Analytics Dashboard:</strong> Real-time tracking</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">📋 <strong>Feedback Forms:</strong> Collection & analysis</li>
+                                    <li style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 5px;">🎯 <strong>Performance Metrics:</strong> KPI frameworks</li>
+                                </ul>
+                            </div>
+                        </div>
                         
-                        <h3>Strategic Documents</h3>
-                        <ul>
-                            <li><strong>Regional Content Strategy:</strong> State-specific approaches</li>
-                            <li><strong>Persona Strategies:</strong> Audience-specific tactics</li>
-                            <li><strong>Crisis Management:</strong> Emergency response protocols</li>
-                            <li><strong>Performance Tracking:</strong> KPI measurement frameworks</li>
-                        </ul>
-                        
-                        <div style="margin-top: 20px;">
-                            <a href="3_Content_Calendar/Regional_Content_Strategy.md" target="_blank" class="btn btn-primary">Regional Strategy</a>
-                            <a href="7_Campaign_Plan/Influencer_Identification_Strategy.md" target="_blank" class="btn btn-secondary">Influencer Guide</a>
+                        <div style="background: linear-gradient(135deg, #2c3e50, #3498db); padding: 2rem; border-radius: 15px; color: white; text-align: center;">
+                            <h3 style="margin-bottom: 1.5rem;">🚀 Quick Access Links</h3>
+                            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                                <a href="campaign-deliverables-viewer.html" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">📁 View All Files</a>
+                                <a href="8_Analytics/Comprehensive_Analytics_Dashboard.html" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">📊 Analytics Dashboard</a>
+                                <a href="EduReach_360_Execution_Dashboard.html" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">🎯 Execution Dashboard</a>
+                            </div>
                         </div>
                     `;
                     break;

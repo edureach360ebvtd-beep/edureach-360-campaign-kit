@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduReach 360 - Campaign Deliverables Viewer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #2c3e50, #3498db); min-height: 100vh; color: #333; }
+        .header { background: rgba(255, 255, 255, 0.95); padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .header h1 { color: #2c3e50; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .header p { color: #666; font-size: 1.2rem; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .folder-card { background: white; border-radius: 15px; padding: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; border-left: 5px solid; }
+        .folder-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .folder-card.audit { border-left-color: #e74c3c; }
+        .folder-card.persona { border-left-color: #9b59b6; }
+        .folder-card.content { border-left-color: #3498db; }
+        .folder-card.social { border-left-color: #1abc9c; }
+        .folder-card.video { border-left-color: #f39c12; }
+        .folder-card.email { border-left-color: #2ecc71; }
+        .folder-card.campaign { border-left-color: #e67e22; }
+        .folder-card.analytics { border-left-color: #34495e; }
+        .folder-card.feedback { border-left-color: #8e44ad; }
+        .folder-header { display: flex; align-items: center; margin-bottom: 1rem; }
+        .folder-icon { font-size: 2rem; margin-right: 1rem; }
+        .folder-title { font-size: 1.4rem; font-weight: bold; color: #2c3e50; }
+        .file-list { list-style: none; }
+        .file-item { padding: 0.8rem; margin: 0.5rem 0; background: #f8f9fa; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; }
+        .file-item:hover { background: #e9ecef; transform: translateX(5px); }
+        .file-info { display: flex; align-items: center; }
+        .file-icon { margin-right: 0.8rem; font-size: 1.2rem; }
+        .file-name { font-weight: 500; color: #2c3e50; }
+        .file-type { background: #3498db; color: white; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { background-color: white; margin: 2% auto; padding: 0; border-radius: 15px; width: 90%; max-width: 1000px; height: 85vh; display: flex; flex-direction: column; overflow: hidden; }
+        .modal-header { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .modal-title { font-size: 1.5rem; font-weight: bold; }
+        .close { color: white; font-size: 2rem; font-weight: bold; cursor: pointer; transition: color 0.3s ease; }
+        .close:hover { color: #f39c12; }
+        .modal-body { padding: 2rem; overflow-y: auto; flex: 1; background: #f8f9fa; }
+        .content-viewer { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .content-viewer h1, .content-viewer h2, .content-viewer h3 { color: #2c3e50; margin: 1rem 0; }
+        .content-viewer h1 { border-bottom: 3px solid #3498db; padding-bottom: 0.5rem; }
+        .content-viewer h2 { color: #3498db; border-left: 4px solid #3498db; padding-left: 1rem; }
+        .stats-bar { background: white; padding: 1.5rem; margin-bottom: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .stat-item { text-align: center; padding: 1rem; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #3498db; }
+        .stat-label { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 EduReach 360 Campaign Deliverables</h1>
+        <p>Interactive Viewer - All Campaign Assets & Documentation</p>
+    </div>
+
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">46</div>
+                    <div class="stat-label">Total Files</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Deliverable Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Requirements Met</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Campaign Days</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder-grid">
+            <div class="folder-card audit">
+                <div class="folder-header">
+                    <div class="folder-icon">🔍</div>
+                    <div class="folder-title">1. Digital Audit</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('1_Audit/Digital_Audit_Report.txt')">
+                        <div class="file-info">
+                            <div class="file-icon">📊</div>
+                            <div class="file-name">Digital Audit Report</div>
+                        </div>
+                        <div class="file-type">TXT</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('1_Audit/SEO_Technical_Audit_Checklist.md')">
+                        <div class="file-info">
+                            <div class="file-icon">🔧</div>
+                            <div class="file-name">SEO Technical Audit Checklist</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('1_Audit/SWOT_Analysis_Template.md')">
+                        <div class="file-info">
+                            <div class="file-icon">⚖️</div>
+                            <div class="file-name">SWOT Analysis Template</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card persona">
+                <div class="folder-header">
+                    <div class="folder-icon">👥</div>
+                    <div class="folder-title">2. Audience Personas</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('2_Persona/Detailed_Audience_Personas.md')">
+                        <div class="file-info">
+                            <div class="file-icon">🎯</div>
+                            <div class="file-name">Detailed Audience Personas</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('2_Persona/EduReach_Persona_Deck.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📋</div>
+                            <div class="file-name">Persona Deck</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card content">
+                <div class="folder-header">
+                    <div class="folder-icon">📅</div>
+                    <div class="folder-title">3. Content Calendar</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('3_Content_Calendar/Regional_Content_Strategy.md')">
+                        <div class="file-info">
+                            <div class="file-icon">🗺️</div>
+                            <div class="file-name">Regional Content Strategy</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card social">
+                <div class="folder-header">
+                    <div class="folder-icon">📱</div>
+                    <div class="folder-title">4. Social Media Assets</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('4_Social_Assets/EBVTD_Brand_Guidelines.md')">
+                        <div class="file-info">
+                            <div class="file-icon">🎨</div>
+                            <div class="file-name">Brand Guidelines</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                    <li class="file-item" onclick="viewFile('4_Social_Assets/Canva_Template_Links.txt')">
+                        <div class="file-info">
+                            <div class="file-icon">🔗</div>
+                            <div class="file-name">Canva Template Links</div>
+                        </div>
+                        <div class="file-type">TXT</div>
+                    </li>
+                    <li class="file-item" onclick="viewImage('4_Social_Assets/Facebook_Post2_Testimonial.png')">
+                        <div class="file-info">
+                            <div class="file-icon">🖼️</div>
+                            <div class="file-name">Facebook Post Template</div>
+                        </div>
+                        <div class="file-type">PNG</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card video">
+                <div class="folder-header">
+                    <div class="folder-icon">🎥</div>
+                    <div class="folder-title">5. Video Content</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('5_Video/EBVTD_30s_Intro_Script.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📝</div>
+                            <div class="file-name">30s Intro Video Script</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card email">
+                <div class="folder-header">
+                    <div class="folder-icon">📧</div>
+                    <div class="folder-title">6. Email & WhatsApp</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('6_Email_WhatsApp/Mailchimp_Setup_Guide.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📬</div>
+                            <div class="file-name">Mailchimp Setup Guide</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card campaign">
+                <div class="folder-header">
+                    <div class="folder-icon">🚀</div>
+                    <div class="folder-title">7. Campaign Plan</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('7_Campaign_Plan/Crisis_Management_Plan.md')">
+                        <div class="file-info">
+                            <div class="file-icon">🚨</div>
+                            <div class="file-name">Crisis Management Plan</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card analytics">
+                <div class="folder-header">
+                    <div class="folder-icon">📈</div>
+                    <div class="folder-title">8. Analytics</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="window.open('8_Analytics/Comprehensive_Analytics_Dashboard.html', '_blank')">
+                        <div class="file-info">
+                            <div class="file-icon">📊</div>
+                            <div class="file-name">Analytics Dashboard</div>
+                        </div>
+                        <div class="file-type">HTML</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="folder-card feedback">
+                <div class="folder-header">
+                    <div class="folder-icon">💬</div>
+                    <div class="folder-title">9. Feedback</div>
+                </div>
+                <ul class="file-list">
+                    <li class="file-item" onclick="viewFile('9_Feedback/Feedback_Form_Template.md')">
+                        <div class="file-info">
+                            <div class="file-icon">📝</div>
+                            <div class="file-name">Feedback Form Template</div>
+                        </div>
+                        <div class="file-type">MD</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="fileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">File Viewer</div>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="fileContent" class="content-viewer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewFile(filepath) {
+            const modal = document.getElementById('fileModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const fileContent = document.getElementById('fileContent');
+            
+            modalTitle.textContent = filepath.split('/').pop();
+            fileContent.innerHTML = '<div style="text-align: center; padding: 2rem;"><div style="font-size: 2rem;">🔄</div><p>Loading content...</p></div>';
+            modal.style.display = 'block';
+            
+            fetch(filepath)
+                .then(response => response.text())
+                .then(content => {
+                    if (filepath.endsWith('.md')) {
+                        fileContent.innerHTML = formatMarkdown(content);
+                    } else {
+                        fileContent.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit;">${content}</pre>`;
+                    }
+                })
+                .catch(error => {
+                    fileContent.innerHTML = `<div style="text-align: center; padding: 2rem; color: #e74c3c;"><div style="font-size: 2rem;">❌</div><p>Error loading file</p></div>`;
+                });
+        }
+
+        function viewImage(filepath) {
+            const modal = document.getElementById('fileModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const fileContent = document.getElementById('fileContent');
+            
+            modalTitle.textContent = filepath.split('/').pop();
+            fileContent.innerHTML = `<div style="text-align: center; padding: 2rem;"><img src="${filepath}" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);" alt="Image" /></div>`;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('fileModal').style.display = 'none';
+        }
+
+        function formatMarkdown(content) {
+            return content
+                .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code>$1</code>')
+                .replace(/^- (.*$)/gm, '<li>$1</li>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/^(?!<)/gm, '<p>')
+                .replace(/(?<!>)$/gm, '</p>');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('fileModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
